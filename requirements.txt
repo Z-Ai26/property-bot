@@ -3,4 +3,4 @@ uvicorn
 requests
 pandas
 python-dotenv
-openai
+anthropic
