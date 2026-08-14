@@ -2,7 +2,9 @@
   "name": "Zahid",
   "contact": "+971562625777",
   "welcome_message": "Hello! This is Zahid's AI Personal Assistant. How can I help you today?",
-  "general_policies": {
+  "disclaimer": "Please note: This is general information. For 100% accurate, final details and current offers, Mr. Zahid will confirm everything with you directly.",
+  
+  "global_policies": {
     "commission": "5% for residential properties, 10% for commercial properties.",
     "security_deposit": "5% for unfurnished units, 10% for furnished and commercial units (Refundable).",
     "ejari": "300 AED + 5% VAT.",
@@ -10,50 +12,35 @@
     "furnishing": "Units are provided unfurnished (furniture and kitchen appliances are not included).",
     "maintenance": "General maintenance is provided by the company.",
     "move_in_timeline": "Move-in is allowed immediately following contract signing.",
-    "pets": "To be confirmed.",
-    "chiller_policy": "NO building is chiller-free. Maya 3 (D22) falls under Empower. All other buildings fall under DEWA."
+    "pets": "To be confirmed per building.",
+    "chiller": "NO building is chiller-free. Maya 3 (D22) falls under Empower. All other buildings fall under DEWA.",
+    "gas": "To be confirmed per building."
   },
-  "building_specific_rules": {
-    "admin_charge": {
-      "Better Living (C8)": "Studio: 683 AED, 1-BHK: 2,000 AED.",
-      "Auris (D10)": "Admin charges apply. Exact amount to be confirmed.",
-      "Travellers (D13)": "Admin charges apply. Exact amount to be confirmed.",
-      "default": "Standard administrative charges apply."
-    },
-    "gas": {
-      "default": "To be confirmed per building."
-    },
-    "al_rigga_area": "Standard company rules apply for all buildings in Al Rigga."
-  },
-  "parking_availability": {
-    "available": [
-      "B67 - AL WASL",
-      "B83 - DOTCOM",
-      "B89 - GHUWAIS",
-      "B98 - NOOR AL SAFA",
-      "C4 - SMJ2",
-      "D06 - FIKREE",
-      "D04 - AL HASEEN",
-      "D18 - WARSAN",
-      "D21 - 7 SEASONS",
-      "D22 - MAYA",
-      "A07 - JVC",
-      "A08 - PARADISE",
-      "FH9 - AL HASEEN 2",
-      "D23 - Al Mamzar"
-    ],
-    "not_available": [
-      "B8 - BARAHA",
-      "B15 - CONSULATE",
-      "B76 - GHURAIR",
-      "B97 - BARAHA",
-      "C8 - Better Living",
-      "D10 - AURIS"
-    ],
-    "to_be_confirmed": [
-      "D09 - AFAF",
-      "D13 - TRAVELLERS"
-    ]
-  },
-  "disclaimer": "Please note: This is general information and policies may be updated over time. For 100% accurate, final details and current offers, Mr. Zahid will confirm everything with you directly."
+  
+  "buildings": {
+    "B67": { "name": "AL WASL", "parking": "Available", "admin_charge": "Standard" },
+    "B83": { "name": "DOTCOM", "parking": "Available", "admin_charge": "Standard" },
+    "B89": { "name": "GHUWAIS", "parking": "Available", "admin_charge": "Standard" },
+    "B98": { "name": "NOOR AL SAFA", "parking": "Available", "admin_charge": "Standard" },
+    "C4":  { "name": "SMJ2", "parking": "Available", "admin_charge": "Standard" },
+    "D06": { "name": "FIKREE", "parking": "Available", "admin_charge": "Standard" },
+    "D04": { "name": "AL HASEEN", "parking": "Available", "admin_charge": "Standard" },
+    "D18": { "name": "WARSAN", "parking": "Available", "admin_charge": "Standard" },
+    "D21": { "name": "7 SEASONS", "parking": "Available", "admin_charge": "Standard" },
+    "D22": { "name": "MAYA", "parking": "Available", "admin_charge": "Standard", "chiller": "Empower" },
+    "A07": { "name": "JVC", "parking": "Available", "admin_charge": "Standard" },
+    "A08": { "name": "PARADISE", "parking": "Available", "admin_charge": "Standard" },
+    "FH9": { "name": "AL HASEEN 2", "parking": "Available", "admin_charge": "Standard" },
+    "D23": { "name": "Al Mamzar", "parking": "Available", "admin_charge": "Standard" },
+    
+    "B8":  { "name": "BARAHA", "parking": "Not Available", "admin_charge": "Standard" },
+    "B15": { "name": "CONSULATE", "parking": "Not Available", "admin_charge": "Standard" },
+    "B76": { "name": "GHURAIR", "parking": "Not Available", "admin_charge": "Standard" },
+    "B97": { "name": "BARAHA", "parking": "Not Available", "admin_charge": "Standard" },
+    "C8":  { "name": "Better Living", "parking": "Not Available", "admin_charge": "Studio: 683 AED, 1-BHK: 2,000 AED" },
+    "D10": { "name": "AURIS", "parking": "Not Available", "admin_charge": "Exact amount to be confirmed." },
+    
+    "D09": { "name": "AFAF", "parking": "To be confirmed", "admin_charge": "Standard" },
+    "D13": { "name": "TRAVELLERS", "parking": "To be confirmed", "admin_charge": "Exact amount to be confirmed." }
+  }
 }
