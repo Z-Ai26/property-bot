@@ -1223,7 +1223,20 @@ def resolve_schema(columns: List[str]) -> Dict[str, str]:
 
     return schema
 
-
+def is_repeated_header_row(record: Dict[str, Any]) -> bool:
+    matches = 0
+    for column, value in record.items():
+        if column == INTERNAL_SEARCH_KEY:
+            continue
+        cleaned = clean_cell(value)
+        if not cleaned:
+            continue
+        if normalize_header(cleaned) == normalize_header(column):
+            matches += 1
+            if matches >= 3:
+                return True
+    return False
+    
 def load_properties_from_sheet(
 ) -> Tuple[List[Dict[str, Any]], Dict[str, str], List[str]]:
     if not GOOGLE_SHEET_URL:
@@ -1301,7 +1314,8 @@ def load_properties_from_sheet(
     for record in records:
         if not any(clean_cell(value) for value in record.values()):
             continue
-
+        if is_repeated_header_row(record):
+            continue
         record[INTERNAL_SEARCH_KEY] = " ".join(
             searchable_text(value)
             for key, value in record.items()
@@ -2485,17 +2499,23 @@ def filter_available_records(
     schema: Dict[str, str],
 ) -> List[Dict[str, Any]]:
     status_column = schema.get("status", "")
-
     if not status_column:
         return records
-
-    return [
-        record
-        for record in records
-        if status_is_available(
-            record.get(status_column, "")
+    kept: List[Dict[str, Any]] = []
+    blank_count = 0
+    for record in records:
+        raw_status = record.get(status_column, "")
+        if not clean_cell(raw_status):
+            blank_count += 1
+            continue
+        if status_is_available(raw_status):
+            kept.append(record)
+    if blank_count:
+        print(
+            f"Availability filter: {blank_count} unit(s) hidden "
+            "(Unit Status is blank)."
         )
-    ]
+    return kept
 
 
 def get_record_value_by_field(
