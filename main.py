@@ -583,12 +583,14 @@ COLUMN_ALIASES = {
         "bua",
     ],
     "status": [
+        "unit status",
         "status",
         "availability",
         "available",
-        "vacant",
     ],
     "description": [
+        "key highlights",
+        "highlights",
         "description",
         "details",
         "remarks",
@@ -658,7 +660,7 @@ COLUMN_ALIASES = {
 FIELD_EXCLUDES = {
     "location": ["sqft", "sq ft", "size", "bua", "built"],
     "building": ["type", "unit no", "unit number", "unit #"],
-    "unit_type": ["unit no", "unit number", "unit #"],
+    "unit_type": ["unit no", "unit number"],
     "unit_no": ["unit type", "property type"],
     "price": [
         "size",
