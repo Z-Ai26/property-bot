@@ -5251,6 +5251,9 @@ def format_size_for_display(value: str) -> str:
     if not value:
         return ""
 
+    if value.strip() in ("0", "1", "0.0", "1.0"):
+        return ""
+
     if re.search(
         r"\b(?:sq\s*ft|sqft|square\s*feet)\b",
         normalize_text(value),
@@ -5489,7 +5492,7 @@ def format_property_results(
                     f"   • *Unit No:* {unit_no_value}"
                 )
 
-            if size_value:
+            if size_value and format_size_for_display(size_value):
                 lines.append(
                     "   • 📏 *Size:* "
                     f"{format_size_for_display(size_value)}"
